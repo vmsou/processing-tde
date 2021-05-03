@@ -1,36 +1,24 @@
-int y = 100;
-int x = 100;
-int y_speed = 2;
-int x_speed = 2;
-int txt_size = 50;
+int velocidadeX = 2;
+int velocidadeY = 3;
+int sentidoX = 1;
+int sentidoY = 1;
 
-int radius = 200;
-float theta = 1;
-
-void setup() {
-  size(800, 600);
-}
-
-void draw() {
-  background(0, 68, 119);
-  noFill();
-  strokeWeight(3);
-  stroke(0, 153, 255);
-  line(width/2, height, width/2, 0);
-  line(0, height/2, width, height/2);
-  scale(1, -1);
-  translate(0, -height);
-  translate(width/2, height/2);
-  circle(0, 0, radius*2);
-  stroke(255);
-  pushMatrix();
-  rotate(theta);
-  line(0, 0, radius, 0);
-  popMatrix();
+float posicaoBola[] = {1280/2, 720/2};
+int tamanhoBola = 10;
+void setup(){
+  size(1280, 720);
   noStroke();
-  fill(255);
-  float x = cos(theta) * radius;
-  float y = sin(theta) * radius;
-  circle(x, y, 15);
-  theta += 0.01;
+}
+void draw(){
+  background(#c4c4c4);
+  fill(255, 0, 0);
+  rect(0,0,1280, 200);
+  fill(0, 255, 0);
+  rect(0, 700, 1280, 20);
+  fill(0);
+  ellipse(posicaoBola[0], posicaoBola[1], tamanhoBola, tamanhoBola);
+  posicaoBola[0] += velocidadeX*sentidoX;
+  posicaoBola[1] += velocidadeY*sentidoY;
+  if(posicaoBola[1] >= 700-(tamanhoBola/2) || posicaoBola[1] <= 200+(tamanhoBola/2)){sentidoY = sentidoY*(-1);}
+  if(posicaoBola[0] >= 1280-(tamanhoBola/2) || posicaoBola[0] <= 0+(tamanhoBola/2)){sentidoX = sentidoX*(-1);}
 }
