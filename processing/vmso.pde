@@ -10,7 +10,7 @@ class Block {
   int x, y, w, h;
   color c;
   
-  public Block(int x, int y, int w, int h, int c) {
+  Block(int x, int y, int w, int h, int c) {
     this.x = x;
     this.w = w;
     this.y = y;
@@ -18,9 +18,16 @@ class Block {
     this.c = c;
   }
   
-  public void desenhar() {
+  void desenhar() {
     fill(c);
     rect(x, y, w, h);
+  }
+  
+  boolean colisao(int x2, int y2) {
+    if ((x < x2 && x2 < x+w) && (y < y2 && y2 < y+h)) {
+      return true;
+    }
+    return false;
   }
 }
 
@@ -44,18 +51,17 @@ class BlockSystem {
   void update() {
     for (Block b : blocks) {
       b.desenhar();
+      if (b.colisao(mouseX, mouseY)) {println("Colisao");};
     }
   }
 }
 
-
 BlockSystem bs = new BlockSystem(8, 5);
+//void setup() {
+//  noStroke();
+//  size(1280, 720);
+//}
 
-void setup() {
-  noStroke();
-  size(1280, 720);
-}
-
-void draw() {
-  bs.update();
-}
+//void draw() {
+//  bs.update();
+// }
