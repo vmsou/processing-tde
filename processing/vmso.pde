@@ -51,8 +51,7 @@ class BlockSystem {
   void update(int x2, int y2) {
     for (Block b : blocks) {
       b.desenhar();
-      textSize(20);
-      if (b.colisao(x2,y2)) {text("Colisao", 500, 500);};
+      if (b.colisao(x2,y2)) {println("Colisao");};
     }
   }
 }
