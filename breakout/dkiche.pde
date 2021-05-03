@@ -12,10 +12,18 @@ class Ball {
   }
   
   void update() {
+    areaLimite();
     x += speedX*directionX;
     y += speedY*directionY;
-    if(y >= 700-(size/2)) directionY *= -1;
-    if(x >= 1280-(size/2) || x <= (size/2)) directionX *= -1;
+  }
+  
+  void areaLimite() {
+    if (y > height-this.size || y < this.size) {
+      directionY *= -1;
+    }
+    if (x > width-this.size || x < this.size) {
+      directionX *= -1;
+    }
   }
   
   void desenhar() {

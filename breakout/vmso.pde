@@ -27,9 +27,9 @@ class Block {
     } 
   }
   
-  boolean colisao(int x2, int y2) {
+  boolean colisao(int bx, int by, int bs) {
     if (alive) {
-      if ((x2 > x && x2 < x + w) && (y2 > y && y2 < y + h)) {
+      if ((by > y && by < y + h + bs/2) && (bx > x && bx < x + w)) {
       return true;
       }
     }
@@ -57,10 +57,10 @@ class BlockSystem {
   
   void update(Ball bola) {
     for (Block b : blocks) {
-      if (b.colisao(bola.x, bola.y)) {
+      if (b.colisao(bola.x, bola.y, bola.size)) {
         bola.directionY *= -1;
         b.health -= 1;
-        if (b.health <= 0) b.alive = true;
+        if (b.health <= 0) b.alive = false;
       };
       b.desenhar();
     }
