@@ -48,10 +48,10 @@ class BlockSystem {
     
   }
   
-  void update() {
+  void update(int x2, int y2) {
     for (Block b : blocks) {
       b.desenhar();
-      if (b.colisao(mouseX, mouseY)) {println("Colisao");};
+      if (b.colisao(x2,y2)) {println("Colisao");};
     }
   }
 }

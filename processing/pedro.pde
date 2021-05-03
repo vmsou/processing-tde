@@ -1,14 +1,14 @@
 float xp=50, yp=700; // coordenadas iniciais do player
 
-void setup() {
-  size(1280, 720);
-}
+//void setup() {
+//  size(1280, 720);
+//}
 
-void draw() {
-  background(128);
-  move_player();
-  desenha_player(xp,yp);
-}
+//void draw() {
+//  background(128);
+//  move_player();
+//  desenha_player(xp,yp);
+//}
 
 void desenha_player(float xp, float yp){
   rect(xp,yp,40,20);
