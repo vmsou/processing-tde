@@ -2,8 +2,8 @@ class Ball {
   int x, y;
   int directionX = 1;
   int directionY = 1;
-  int speedX = 2;
-  int speedY = 3;
+  int speedX = 5;
+  int speedY = 5;
   int size = 20;
   
   Ball(int x, int y) {

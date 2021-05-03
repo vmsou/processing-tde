@@ -28,8 +28,9 @@ class Block {
   }
   
   boolean colisao(int bx, int by, int bs) {
+    int r = bs/2;
     if (alive) {
-      if ((by > y && by < y + h + bs/2) && (bx > x && bx < x + w)) {
+      if ((by > y-r && by < y + h + r) && (bx > x-r && bx < x + w + r)) {
       return true;
       }
     }
@@ -40,19 +41,17 @@ class Block {
 class BlockSystem {
   ArrayList<Block> blocks;
   int l;
-  int n;
   
   BlockSystem(int n, int l) {
     blocks = new ArrayList<Block>();
-    
+   
     for (int j = 0; j < l; j++) {
       for (int i = 0; i < n; i++) {
-        Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5 * j) + 20, 150, 30, colors[j]);
+        Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5*j) + 20, 150, 30, colors[j]);
         block.health = 1;
         blocks.add(block);
       }
     }
-    
   }
   
   void update(Ball bola) {
