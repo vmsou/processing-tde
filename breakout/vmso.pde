@@ -36,9 +36,9 @@ class Block {
     } 
   }
   
-  boolean colisao(Point pos2) {
+  boolean colisao(int x2, int y2) {
     if (alive) {
-      if ((pos2.x > pos.x && pos2.x < pos.x + w) && (pos2.y > pos.y && pos2.y < pos.y + h)) {
+      if ((x2 > pos.x && x2 < pos.x + w) && (y2 > pos.y && y2 < pos.y + h)) {
       return true;
       }
     }
@@ -68,7 +68,7 @@ class BlockSystem {
     for (Block b : blocks) {
       b.desenhar();
       textSize(20);
-      if (b.colisao(bola.pos)) {
+      if (b.colisao(bola.x, bola.y)) {
         bola.directionY *= -1;
         b.health -= 1;
         if (b.health <= 0) b.alive = false;
