@@ -1,10 +1,4 @@
-int velocidadeX = 2;
-int velocidadeY = 3;
-int sentidoX = 1;
-int sentidoY = 1;
-
-int tamanhoBola = 10;
-Point pos = new Point(width/2, height/2);
+Ball ball = new Ball();
 
 
 Block b1 = new Block(100, 100, 170, 30, color(100, 100, 100));
@@ -17,10 +11,10 @@ void draw(){
   fill(0, 255, 0);
   rect(0, 700, 1280, 20);
   fill(0);
-  ellipse(pos.x, pos.y, tamanhoBola, tamanhoBola);
-  pos.x += velocidadeX*sentidoX;
-  pos.y += velocidadeY*sentidoY;
-  if(pos.y >= 700-(tamanhoBola/2)){sentidoY = sentidoY*(-1);}
-  if(pos.x >= 1280-(tamanhoBola/2) || pos.x <= (tamanhoBola/2)){sentidoX = sentidoX*(-1);}
-  bs.update(pos.x, pos.y);
+  ellipse(ball.pos.x, ball.pos.y, ball.size, ball.size);
+  ball.pos.x += ball.speedX*ball.directionX;
+  ball.pos.y += ball.speedY*ball.directionY;
+  if(ball.pos.y >= 700-(ball.size/2)) ball.directionY *= -1;
+  if(ball.pos.x >= 1280-(ball.size/2) || ball.pos.x <= (ball.size/2)) ball.directionX *= -1;
+  bs.update(ball);
 }

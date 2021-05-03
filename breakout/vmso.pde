@@ -18,7 +18,9 @@ class Point {
 class Block {
   Point pos;
   int w, h;
+  int health;
   color c;
+  boolean alive = true;
   
   Block(int x, int y, int w, int h, int c) {
     this.pos = new Point(x, y);
@@ -28,13 +30,17 @@ class Block {
   }
   
   void desenhar() {
-    fill(c);
-    rect(pos.x, pos.y, w, h);
+    if (alive) {
+      fill(c);
+      rect(pos.x, pos.y, w, h);
+    } 
   }
   
-  boolean colisao(int x2, int y2) {
-    if ((pos.x < x2 && x2 < pos.x+w) && (pos.y < y2 && y2 < pos.y+h)) {
+  boolean colisao(Point pos2) {
+    if (alive) {
+      if ((pos2.x > pos.x && pos2.x < pos.x + w) && (pos2.y > pos.y && pos2.y < pos.y + h)) {
       return true;
+      }
     }
     return false;
   }
@@ -51,17 +57,22 @@ class BlockSystem {
     for (int j = 0; j < l; j++) {
       for (int i = 0; i < n; i++) {
         Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5 * j) + 20, 150, 30, colors[j]);
+        block.health = 1;
         blocks.add(block);
       }
     }
     
   }
   
-  void update(int x2, int y2) {
+  void update(Ball bola) {
     for (Block b : blocks) {
       b.desenhar();
       textSize(20);
-      if (b.colisao(x2,y2)) {text("Colisao", 500, 500);};
+      if (b.colisao(bola.pos)) {
+        bola.directionY *= -1;
+        b.health -= 1;
+        if (b.health <= 0) b.alive = false;
+      };
     }
   }
 }
