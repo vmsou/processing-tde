@@ -4,7 +4,7 @@ class Ball {
   int directionY = 1;
   int speedX = 2;
   int speedY = 3;
-  int size = 10;
+  int size = 20;
   
   Ball(int x, int y) {
     this.x = x;
@@ -18,10 +18,10 @@ class Ball {
   }
   
   void areaLimite() {
-    if (y > height-this.size || y < this.size) {
+    if (y > height-this.size/2 || y < this.size/2) {
       directionY *= -1;
     }
-    if (x > width-this.size || x < this.size) {
+    if (x > width-this.size/2 || x < this.size/2) {
       directionX *= -1;
     }
   }
