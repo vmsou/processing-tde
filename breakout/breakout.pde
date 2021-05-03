@@ -9,11 +9,7 @@ void draw(){
   background(#c4c4c4);
   fill(0, 255, 0);
   rect(0, 700, 1280, 20);
-  fill(0);
-  ellipse(ball.x, ball.y, ball.size, ball.size);
-  ball.x += ball.speedX*ball.directionX;
-  ball.y += ball.speedY*ball.directionY;
-  if(ball.y >= 700-(ball.size/2)) ball.directionY *= -1;
-  if(ball.x >= 1280-(ball.size/2) || ball.x <= (ball.size/2)) ball.directionX *= -1;
+  ball.desenhar();
+  ball.update();
   bs.update(ball);
 }
