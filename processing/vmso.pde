@@ -1,6 +1,6 @@
 color c1 = color(200, 50, 50);
 color c2 = color(255, 140, 0);
-color c3 = color(255, 140, 0);
+color c3 = color(255, 255, 0);
 color c4 = color(34, 139, 34);
 color c5 = color(65, 105, 255);
 
@@ -34,7 +34,7 @@ class BlockSystem {
     
     for (int j = 0; j < l; j++) {
       for (int i = 0; i < n; i++) {
-        Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5 * j), 150, 30, colors[j]);
+        Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5 * j) + 20, 150, 30, colors[j]);
         blocks.add(block);
       }
     }
@@ -52,6 +52,7 @@ class BlockSystem {
 BlockSystem bs = new BlockSystem(8, 5);
 
 void setup() {
+  noStroke();
   size(1280, 720);
 }
 
