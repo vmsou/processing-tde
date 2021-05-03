@@ -6,25 +6,34 @@ color c5 = color(65, 105, 255);
 
 color[] colors = {c1, c2, c3, c4, c5};
 
+
+class Point {
+  int x, y;
+  Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
 class Block {
-  int x, y, w, h;
+  Point pos;
+  int w, h;
   color c;
   
   Block(int x, int y, int w, int h, int c) {
-    this.x = x;
+    this.pos = new Point(x, y);
     this.w = w;
-    this.y = y;
     this.h = h;
     this.c = c;
   }
   
   void desenhar() {
     fill(c);
-    rect(x, y, w, h);
+    rect(pos.x, pos.y, w, h);
   }
   
   boolean colisao(int x2, int y2) {
-    if ((x < x2 && x2 < x+w) && (y < y2 && y2 < y+h)) {
+    if ((pos.x < x2 && x2 < pos.x+w) && (pos.y < y2 && y2 < pos.y+h)) {
       return true;
     }
     return false;
