@@ -10,6 +10,7 @@ void draw(){
   fill(0, 255, 0);
   rect(0, 700, 1280, 20);
   ball.desenhar();
+  
   ball.update();
   bs.update(ball);
 }

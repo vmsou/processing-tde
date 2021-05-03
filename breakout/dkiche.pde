@@ -12,8 +12,8 @@ class Ball {
   }
   
   void update() {
-    ball.x += speedX*directionX;
-    ball.y += speedY*directionY;
+    x += speedX*directionX;
+    y += speedY*directionY;
     if(y >= 700-(size/2)) directionY *= -1;
     if(x >= 1280-(size/2) || x <= (size/2)) directionX *= -1;
   }

@@ -6,24 +6,15 @@ color c5 = color(65, 105, 255);
 
 color[] colors = {c1, c2, c3, c4, c5};
 
-
-class Point {
-  int x, y;
-  Point(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
-}
-
 class Block {
-  Point pos;
-  int w, h;
+  int x, y, w, h;
   int health;
   color c;
   boolean alive = true;
   
   Block(int x, int y, int w, int h, int c) {
-    this.pos = new Point(x, y);
+    this.x = x;
+    this.y = y;
     this.w = w;
     this.h = h;
     this.c = c;
@@ -32,13 +23,13 @@ class Block {
   void desenhar() {
     if (alive) {
       fill(c);
-      rect(pos.x, pos.y, w, h);
+      rect(x, y, w, h);
     } 
   }
   
   boolean colisao(int x2, int y2) {
     if (alive) {
-      if ((x2 > pos.x && x2 < pos.x + w) && (y2 > pos.y && y2 < pos.y + h)) {
+      if ((x2 > x && x2 < x + w) && (y2 > y && y2 < y + h)) {
       return true;
       }
     }
@@ -66,13 +57,12 @@ class BlockSystem {
   
   void update(Ball bola) {
     for (Block b : blocks) {
-      b.desenhar();
-      textSize(20);
       if (b.colisao(bola.x, bola.y)) {
         bola.directionY *= -1;
         b.health -= 1;
-        if (b.health <= 0) b.alive = false;
+        if (b.health <= 0) b.alive = true;
       };
+      b.desenhar();
     }
   }
 }
