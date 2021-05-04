@@ -38,9 +38,11 @@ void keyReleased() {
     
     if (keyCode == LEFT) {
       jogador.left = false;
+      jogador.speed = 0;
     }
     if(keyCode == RIGHT) {
       jogador.right = false;
+      jogador.speed = 0;
     }
   }
 }  
