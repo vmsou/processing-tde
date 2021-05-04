@@ -15,7 +15,8 @@ void draw(){
   ball.update();
   bs.update(ball);
   
-  jogador.colisao(ball.x, ball.y); // Terminar
+  //jogador.colisao(ball.x, ball.y); // Terminar
+  jogador.update();
   jogador.desenhar();
 
 }
@@ -24,10 +25,22 @@ void draw(){
 void keyPressed() {
   if(key == CODED) {
     if (keyCode == LEFT) {
-      jogador.x -= 10;
+      jogador.left = true;
     }
     if(keyCode == RIGHT) {
-      jogador.x += 10;
+      jogador.right = true;
     }
   }
 }
+
+void keyReleased() {
+  if(key == CODED) {
+    
+    if (keyCode == LEFT) {
+      jogador.left = false;
+    }
+    if(keyCode == RIGHT) {
+      jogador.right = false;
+    }
+  }
+}  

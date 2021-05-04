@@ -1,7 +1,8 @@
 class Player {
   int x, y;
   int w, h;
-  int speed = 7;
+  float speed = 0;
+  boolean right, left;
   
   Player(int x, int y, int w, int h) {
     this.x = x;
@@ -17,5 +18,15 @@ class Player {
   
   void colisao(int x2, int y2) {
     //
+  }
+  
+  void velocidade() {
+    if (right) speed = 5;
+    if (left) speed = -5;
+  }
+  
+  void update() {
+    velocidade();
+    x += speed;
   }
 }
