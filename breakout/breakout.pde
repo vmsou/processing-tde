@@ -15,6 +15,7 @@ void draw(){
   ball.update();
   bs.update(ball);
   
+  jogador.colisao(ball.x, ball.y); // Terminar
   jogador.desenhar();
 
 }

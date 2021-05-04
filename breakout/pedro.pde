@@ -14,4 +14,8 @@ class Player {
     fill(0);
     rect(x, y, w, h);
   }
+  
+  void colisao(int x2, int y2) {
+    //
+  }
 }
