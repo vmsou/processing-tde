@@ -16,8 +16,11 @@ class Player {
     rect(x, y, w, h);
   }
   
-  void colisao(int x2, int y2) {
-    //
+  boolean colisao(int x2, int y2, int r) {
+    if ((x2 > x-r && x2 < x + w + r) && (y2 > y-r && y2 < y + h + r)) {
+      return true;
+    }
+    return false;
   }
   
   void velocidade() {
@@ -25,7 +28,10 @@ class Player {
     if (left) speed = -5;
   }
   
-  void update() {
+  void update(Ball bola) {
+    if (colisao(bola.x, bola.y, bola.size/2)) {
+      bola.directionY *= -1;
+    }
     velocidade();
     x += speed;
   }

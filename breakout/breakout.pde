@@ -12,21 +12,8 @@ void drawLoop() {
 void eventLoop() {
   ball.update();
   bs.update(ball);
-  //jogador.colisao(ball.x, ball.y); // Terminar
-  jogador.update();
+  jogador.update(ball);
 }
-
-
-void setup(){
-  size(1280, 720);
-  frameRate(60);
-  noStroke();
-}
-void draw(){
-  drawLoop();
-  eventLoop();
-}
-
 
 void keyPressed() {
   if(key == CODED) {
@@ -41,7 +28,6 @@ void keyPressed() {
 
 void keyReleased() {
   if(key == CODED) {
-    
     if (keyCode == LEFT) {
       jogador.left = false;
       jogador.speed = 0;
@@ -52,3 +38,14 @@ void keyReleased() {
     }
   }
 }  
+
+void setup(){
+  size(1280, 720);
+  frameRate(60);
+  noStroke();
+}
+
+void draw(){
+  drawLoop();
+  eventLoop();
+}
