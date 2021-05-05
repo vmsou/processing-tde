@@ -1,13 +1,14 @@
 Ball ball = new Ball(20, 640);
 Player jogador = new Player(50, 670, 200, 20);
 
-boolean Paused = false;
+boolean Running = true;
 
 void drawLoop() {
   background(#c4c4c4);
   fill(0, 255, 0);
   ball.desenhar();
   jogador.desenhar();
+  bs.desenhar();
 }
 
 void eventLoop() {
@@ -27,16 +28,11 @@ void keyPressed() {
     }
     
     if(keyCode == UP) {
-      if (!Paused) {
-        Paused = true;
-        textSize(40);
-        textAlign(CENTER, CENTER);
-        text("Pausado", width/2, height/2);
-        frameRate(0); 
+      if (Running) {
+        Running = false;
       } 
       else {
-        Paused = false;
-        frameRate(60);
+        Running = true;
       }
     }
   }
@@ -69,5 +65,10 @@ void setup(){
 
 void draw(){
   drawLoop();
-  eventLoop();
+  if (Running) eventLoop();
+  else {
+    textSize(40);
+    textAlign(CENTER, CENTER);
+    text("Pausado", width/2, height/2);
+  }
 }

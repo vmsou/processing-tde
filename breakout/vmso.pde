@@ -52,6 +52,10 @@ class BlockSystem {
     }
   }
   
+  void desenhar() {
+    for (Block b : blocks) b.desenhar();
+  }
+  
   void update(Ball bola) {
     for (Block b : blocks) {
       if (b.colisao(bola.x, bola.y, bola.size)) {
@@ -59,7 +63,6 @@ class BlockSystem {
         b.health -= 1;
         if (b.health <= 0) b.alive = false;
       };
-      b.desenhar();
     }
   }
 }
