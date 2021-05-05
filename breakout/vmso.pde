@@ -1,18 +1,14 @@
-color c1 = color(200, 50, 50);
-color c2 = color(255, 140, 0);
-color c3 = color(255, 255, 0);
-color c4 = color(34, 139, 34);
-color c5 = color(65, 105, 255);
-
 color[] colors = {c1, c2, c3, c4, c5};
+int[] healths = {3, 2, 2, 2, 1};
 
 class Block {
   int x, y, w, h;
+  int maxHealth;
   int health;
   color c;
   boolean alive = true;
   
-  Block(int x, int y, int w, int h, int c) {
+  Block(int x, int y, int w, int h, color c) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -22,7 +18,8 @@ class Block {
   
   void desenhar() {
     if (alive) {
-      fill(c);
+      int bright = health * 255 / maxHealth;
+      fill(c, bright);
       rect(x, y, w, h);
     } 
   }
@@ -48,7 +45,8 @@ class BlockSystem {
     for (int j = 0; j < l; j++) {
       for (int i = 0; i < n; i++) {
         Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5*j) + 20, 150, 30, colors[j]);
-        block.health = 1;
+        block.maxHealth = healths[j];
+        block.health = block.maxHealth;
         blocks.add(block);
       }
     }

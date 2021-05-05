@@ -1,5 +1,4 @@
 Ball ball = new Ball(20, 640);
-Block b1 = new Block(100, 100, 170, 30, color(100, 100, 100));
 Player jogador = new Player(50, 670, 200, 20);
 
 boolean Paused = false;
