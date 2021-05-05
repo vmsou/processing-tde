@@ -54,7 +54,12 @@ void keyReleased() {
       jogador.speed = 0;
     }
   }
-}  
+}
+
+void mouseWheel(MouseEvent event) {
+  ball.speedX += event.getCount();
+  ball.speedY += event.getCount();
+}
 
 void setup(){
   size(1280, 720);
