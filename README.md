@@ -1,7 +1,7 @@
 # processing-tde
  [Projeto 2] Aplicativo Multimidia
 
-# Grupo - Incoêrencia Algorítmica
+# Grupo 15
 * Vinicius Marques
 * ...
 * ...
