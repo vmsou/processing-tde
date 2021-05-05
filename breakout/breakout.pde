@@ -12,7 +12,8 @@ void drawLoop() {
 void eventLoop() {
   ball.update();
   bs.update(ball);
-  jogador.update(ball);
+  jogador.update();
+  jogador.colide(ball);
 }
 
 void keyPressed() {

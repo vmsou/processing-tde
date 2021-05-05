@@ -1,3 +1,7 @@
+public static float clamp(float val, float min, float max) {
+    return Math.max(min, Math.min(max, val));
+}
+
 class Player {
   int x, y;
   int w, h;
@@ -17,21 +21,41 @@ class Player {
   }
   
   boolean colisao(int x2, int y2, int r) {
-    if ((x2 > x-r && x2 < x + w + r) && (y2 > y-r && y2 < y + h + r)) {
-      return true;
-    }
-    return false;
+    float closestX = clamp(x2, x, x+w);
+    float closestY = clamp(y2, y, y+h);
+    
+    float distanceX = x2 - closestX;
+    float distanceY = y2 - closestY;
+    
+    float distanceSqr = (distanceX * distanceX) + (distanceY * distanceY);
+    return distanceSqr < (r * r);
+    
   }
   
   void velocidade() {
-    if (right) speed = 5;
-    if (left) speed = -5;
+    if (right) speed = 7;
+    if (left) speed = -7;
   }
   
-  void update(Ball bola) {
+  void colide(Ball bola) {
     if (colisao(bola.x, bola.y, bola.size/2)) {
       bola.directionY *= -1;
     }
+  }
+  
+  void areaLimite() {
+    if (x+w > width) {
+      right = false;
+      speed = 0;
+    }
+    if (x < 0) {
+      left = false;
+      speed = 0;
+    }
+  }
+  
+  void update() {
+    areaLimite();
     velocidade();
     x += speed;
   }
