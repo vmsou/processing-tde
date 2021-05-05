@@ -43,6 +43,7 @@ void keyReleased() {
 void setup(){
   size(1280, 720);
   frameRate(60);
+  colorMode(HSB, 360, 100, 100);
   noStroke();
 }
 

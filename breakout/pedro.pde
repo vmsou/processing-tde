@@ -15,7 +15,7 @@ class Player {
     this.h = h;
   }
   
-  void desenhar() {
+  void desenhar() {;
     fill(0);
     rect(x, y, w, h);
   }

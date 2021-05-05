@@ -27,7 +27,10 @@ class Ball {
   }
   
   void desenhar() {
-      fill(0);
+      float h = x * 360.0 / width;
+      float s = y * 100.0 / height;
+      float b = 90;
+      fill(h, s, b);
       ellipse(x, y, size, size);
   }
 }
