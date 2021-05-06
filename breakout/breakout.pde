@@ -56,6 +56,7 @@ void keyPressed() {
     }
   }
   if (key == 'r') bs.reset(); 
+  if (key == 'c') balls.clear();
 }
 
 void keyReleased() {
