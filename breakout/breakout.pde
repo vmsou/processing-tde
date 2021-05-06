@@ -34,7 +34,7 @@ void mousePressed() {
   if (mouseButton == LEFT) {
     Ball newBall = new Ball(mouseX, mouseY);
     balls.add(newBall);
-  } else if (mouseButton == RIGHT) balls.remove(0); 
+  } else if (mouseButton == RIGHT && balls.size() > 0) balls.remove(0); 
 }
 
 void keyPressed() {
@@ -71,8 +71,10 @@ void keyReleased() {
 }
 
 void mouseWheel(MouseEvent event) {
-  ball.speedX += event.getCount();
-  ball.speedY += event.getCount();
+  for (Ball b : balls) {
+    b.speedX += event.getCount();
+    b.speedY += event.getCount();
+  }
 }
 
 void setup(){
