@@ -6,7 +6,7 @@ boolean Running = true;
 void HUD() {
   textSize(30);
   text("Pontos: " + 0, 20, 30);
-  text("Vida: " + 0, 1150, 30);
+  text("Vida: " + jogador.health, 1150, 30);
 }
 
 void drawLoop() {
@@ -19,6 +19,7 @@ void drawLoop() {
 }
 
 void eventLoop() {
+  if (jogador.health <= 0) Running = false;
   ball.update();
   bs.update(ball);
   jogador.update();

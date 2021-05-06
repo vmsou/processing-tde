@@ -1,6 +1,3 @@
-color[] colors = {c1, c2, c3, c4, c5};
-int[] healths = {3, 2, 2, 2, 1};
-
 class Block {
   int x, y, w, h;
   int maxHealth;

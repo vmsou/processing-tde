@@ -7,6 +7,7 @@ class Player {
   int w, h;
   float speed = 0;
   boolean right, left;
+  int health = 3;
   
   Player(int x, int y, int w, int h) {
     this.x = x;

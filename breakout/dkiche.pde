@@ -18,7 +18,12 @@ class Ball {
   }
   
   void areaLimite() {
-    if (y > height-this.size/2 || y < this.size/2) {
+    if (y > height-this.size/2) {
+      jogador.health -= 1;
+      x = width/2;
+      y = 300;
+    }
+    if (y < this.size/2) {
       directionY *= -1;
     }
     if (x > width-this.size/2 || x < this.size/2) {
