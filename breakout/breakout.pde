@@ -31,8 +31,10 @@ void eventLoop() {
 }
 
 void mousePressed() {
-  Ball newBall = new Ball(mouseX, mouseY);
-  balls.add(newBall);
+  if (mouseButton == LEFT) {
+    Ball newBall = new Ball(mouseX, mouseY);
+    balls.add(newBall);
+  } else if (mouseButton == RIGHT) balls.remove(0); 
 }
 
 void keyPressed() {
