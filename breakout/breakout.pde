@@ -5,7 +5,7 @@ boolean Running = true;
 
 void HUD() {
   textSize(30);
-  text("Pontos: " + 0, 20, 30);
+  text("Pontos: " + jogador.pontos, 0, 30);
   text("Vida: " + jogador.health, 1150, 30);
 }
 
