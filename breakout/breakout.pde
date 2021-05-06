@@ -6,7 +6,7 @@ boolean Running = true;
 void HUD() {
   textSize(30);
   text("Pontos: " + 0, 20, 30);
-  text("Vida: " + 0, 1100, 30);
+  text("Vida: " + 0, 1150, 30);
 }
 
 void drawLoop() {
@@ -75,7 +75,6 @@ void draw(){
   if (Running) eventLoop();
   else {
     textSize(40);
-    textAlign(CENTER, CENTER);
-    text("Pausado", width/2, height/2);
+    text("Pausado", width/2 - 100, height/2);
   }
 }
