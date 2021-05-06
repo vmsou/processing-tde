@@ -62,6 +62,13 @@ class BlockSystem {
       };
     }
   }
+  
+  void reset() {
+    for (Block b : blocks) {
+      b.alive = true;
+      b.health = b.maxHealth;
+    }
+  }
 }
 
 BlockSystem bs = new BlockSystem(8, 5);

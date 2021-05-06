@@ -55,6 +55,7 @@ void keyPressed() {
       }
     }
   }
+  if (key == 'r') bs.reset(); 
 }
 
 void keyReleased() {
