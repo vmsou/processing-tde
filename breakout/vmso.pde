@@ -44,7 +44,7 @@ class BlockSystem {
    
     for (int j = 0; j < l; j++) {
       for (int i = 0; i < n; i++) {
-        Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5*j) + 20, 150, 30, colors[j]);
+        Block block = new Block((150*i) + (5*i) + 20, (30*j) + (5*j) + 80, 150, 30, colors[j]);
         block.maxHealth = healths[j];
         block.health = block.maxHealth;
         blocks.add(block);

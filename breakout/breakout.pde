@@ -3,9 +3,16 @@ Player jogador = new Player(50, 670, 200, 20);
 
 boolean Running = true;
 
+void HUD() {
+  textSize(30);
+  text("Pontos: " + 0, 20, 30);
+  text("Vida: " + 0, 1100, 30);
+}
+
 void drawLoop() {
   background(#c4c4c4);
   fill(0, 255, 0);
+  HUD();
   ball.desenhar();
   jogador.desenhar();
   bs.desenhar();
