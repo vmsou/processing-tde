@@ -2,6 +2,7 @@ class Block {
   int x, y, w, h;
   int maxHealth;
   int health;
+  int pontos = 1;
   color c;
   boolean alive = true;
   
@@ -56,6 +57,7 @@ class BlockSystem {
   void update(Ball bola) {
     for (Block b : blocks) {
       if (b.colisao(bola.x, bola.y, bola.size)) {
+        jogador.pontos += b.pontos;
         bola.directionY *= -1;
         b.health -= 1;
         if (b.health <= 0) b.alive = false;
