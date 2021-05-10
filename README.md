@@ -3,7 +3,7 @@
 
 # Grupo 15
 * Vinicius Marques
-* ...
+* Diogo Kiche
 * ...
 
 ## Sobre o Projeto
