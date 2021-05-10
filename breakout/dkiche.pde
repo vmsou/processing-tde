@@ -5,6 +5,7 @@ class Ball {
   int speedX = 5;
   int speedY = 5;
   int size = 20;
+  boolean alive = true;
   
   Ball(int x, int y) {
     this.x = x;
@@ -20,8 +21,7 @@ class Ball {
   void areaLimite() {
     if (y > height-this.size/2) {
       jogador.health -= 1;
-      x = width/2;
-      y = 300;
+      alive = false;
     }
     if (y < this.size/2) {
       directionY *= -1;

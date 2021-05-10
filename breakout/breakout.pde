@@ -22,10 +22,13 @@ void drawLoop() {
 
 void eventLoop() {
   if (jogador.health <= 0) Running = false;
+  int i = 0;
   for (Ball b : balls) {
     b.update();
     bs.update(b);
     jogador.colide(b);
+    if (!b.alive) balls.remove(i);
+    i++;
   }
   jogador.update();
 }
