@@ -3,7 +3,7 @@ JSONArray infoPlayers;
 int pontos = 110;
 String nome = "Julia";
 int melhores[] = {0, 0, 0};
-int nomeMelhores[] = {"-", "-", "-"};
+String nomeMelhores[] = {"-", "-", "-"};
 
 void setup() {
   infoPlayers = loadJSONArray("data.json");
@@ -19,7 +19,7 @@ void setup() {
    for (int i = 0; i < infoPlayers.size(); i++) {
        JSONObject indice = infoPlayers.getJSONObject(i);
        int pontoAtual = indice.getInt("Pontos");
-       int nomeAtual = indice.getInt("Nome");
+       String nomeAtual = indice.getString("Nome");
        if (melhores[0] < pontoAtual) {
          melhores[2] = melhores[1];
          melhores[1] = melhores[0];
