@@ -26,7 +26,9 @@ class Block {
     int r = bs/2;
     if (alive) {
       if ((by > y-r && by < y + h + r) && (bx > x-r && bx < x + w + r)) {
-      return true;
+        //hit.play();
+        //hit.rewind();
+        return true;
       }
     }
     return false;
@@ -72,5 +74,3 @@ class BlockSystem {
     }
   }
 }
-
-BlockSystem bs;

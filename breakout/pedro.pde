@@ -31,6 +31,8 @@ class Player {
     float distanceY = y2 - closestY;
     
     float distanceSqr = (distanceX * distanceX) + (distanceY * distanceY);
+    //hit.play();
+    //hit.rewind();
     return distanceSqr < (r * r);
     
   }

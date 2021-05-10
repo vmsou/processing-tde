@@ -24,9 +24,13 @@ class Ball {
       alive = false;
     }
     if (y < this.size/2) {
+      //hit.play();
+      //hit.rewind();
       directionY *= -1;
     }
     if (x > width-this.size/2 || x < this.size/2) {
+      //hit.play();
+      //hit.rewind();
       directionX *= -1;
     }
   }
