@@ -9,6 +9,7 @@ class Player {
   boolean right, left;
   int health = 3;
   int pontos = 0;
+  int direction = 1;
   
   Player(int x, int y, int w, int h) {
     this.x = x;
@@ -42,6 +43,7 @@ class Player {
   void colide(Ball bola) {
     if (colisao(bola.x, bola.y, bola.size/2)) {
       bola.directionY *= -1;
+      bola.directionX = this.direction;
     }
   }
   

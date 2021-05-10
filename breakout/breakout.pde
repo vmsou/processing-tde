@@ -1,7 +1,6 @@
-ArrayList<Ball> balls = new ArrayList();
-Ball ball = new Ball(20, 640);
-
-Player jogador = new Player(50, 670, 200, 20);
+ArrayList<Ball> balls;
+Ball ball;
+Player jogador;
 
 boolean Running = true;
 
@@ -22,13 +21,10 @@ void drawLoop() {
 
 void eventLoop() {
   if (jogador.health <= 0) Running = false;
-  int i = 0;
   for (Ball b : balls) {
     b.update();
     bs.update(b);
     jogador.colide(b);
-    if (!b.alive) balls.remove(i);
-    i++;
   }
   jogador.update();
 }
@@ -44,9 +40,11 @@ void keyPressed() {
   if(key == CODED) {
     if (keyCode == LEFT) {
       jogador.left = true;
+      jogador.direction = 1;
     }
     if(keyCode == RIGHT) {
       jogador.right = true;
+      jogador.direction = -1;
     }
     
     if(keyCode == UP) {
@@ -88,6 +86,11 @@ void setup(){
   colorMode(HSB, 360, 100, 100);
   noStroke();
   
+  minim = new Minim(this);
+  bs = new BlockSystem(8, 5);
+  jogador = new Player(50, 670, 200, 20);
+  ball = new Ball(20, 640);
+  balls  = new ArrayList();
   balls.add(ball);
 }
 

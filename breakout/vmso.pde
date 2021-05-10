@@ -73,12 +73,4 @@ class BlockSystem {
   }
 }
 
-BlockSystem bs = new BlockSystem(8, 5);
-//void setup() {
-//  noStroke();
-//  size(1280, 720);
-//}
-
-//void draw() {
-//  bs.update();
-// }
+BlockSystem bs;
