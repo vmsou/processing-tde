@@ -40,6 +40,7 @@ void setup() {
        }
    }
    println(melhores);
+   println(nomeMelhores);
   
   // CODIGO QUE SALVA O ARRAY ATUALIZADO
   
