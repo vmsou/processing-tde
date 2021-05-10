@@ -1,5 +1,6 @@
-BlockSystem bs;
 ArrayList<Ball> balls;
+
+BlockSystem bs;
 Ball ball;
 Player jogador;
 
@@ -88,10 +89,10 @@ void setup(){
   noStroke();
   
   minim = new Minim(this);
-  // hit = minim.loadFile("hit.mp3");
-  song = minim.loadFile("song.mp3");
-  song.setVolume(1);
-  song.loop();
+  hit = minim.loadFile("beep.mp3");
+  //song = minim.loadFile("song.mp3");
+  //song.setVolume(1);
+  //song.loop();
   bs = new BlockSystem(8, 5);
   jogador = new Player(50, 670, 200, 20);
   ball = new Ball(20, 640);

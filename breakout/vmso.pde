@@ -26,8 +26,8 @@ class Block {
     int r = bs/2;
     if (alive) {
       if ((by > y-r && by < y + h + r) && (bx > x-r && bx < x + w + r)) {
-        //hit.play();
-        //hit.rewind();
+        hit.play();
+        hit.rewind();
         return true;
       }
     }
