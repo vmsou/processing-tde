@@ -6,13 +6,12 @@ int melhores[] = {0, 0, 0};
 
 void setup() {
   infoPlayers = loadJSONArray("data.json");
-  //println(infoPlayers);
+  
+  // CODIGO QUE SALVA E INSERE AS INFORMACOES DO PLAYER NO ARRAY
+  
   //player = new JSONObject();
   //player.setInt("Pontos", pontos);
   //player.setString("Nome", nome);
-  
-  
-  
   //infoPlayers.setJSONObject(infoPlayers.size(), player);
   
   
@@ -34,6 +33,7 @@ void setup() {
    }
    println(melhores);
   
+  // CODIGO QUE SALVA O ARRAY ATUALIZADO
   //saveJSONArray(infoPlayers, "data.json");
   
 }
