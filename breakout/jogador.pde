@@ -19,7 +19,10 @@ class Player {
   }
   
   void desenhar() {;
-    fill(0);
+    float hc = x * 360.0 / width;
+    float s = y * 100.0 / height;
+    float b = 90;
+    fill(hc, s, b);
     rect(x, y, w, h);
   }
   
