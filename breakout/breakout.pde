@@ -1,10 +1,17 @@
-ArrayList<Ball> balls;
+import ddf.minim.*;
 
+// Som
+Minim minim;
+AudioPlayer song, hit, dest;
+
+// Objetos do jogo
+ArrayList<Ball> balls;
 BlockSystem bs;
 Ball ball;
 Player jogador;
 
-boolean Running = true;
+// Configurações do jogo
+boolean Running;
 
 void HUD() {
   textSize(30);
@@ -23,64 +30,16 @@ void drawLoop() {
 
 void eventLoop() {
   if (jogador.health <= 0) Running = false;
-  for (Ball b : balls) {
-    b.update();
-    bs.update(b);
-    jogador.colide(b);
+  for (int i = 0; i < balls.size(); i++) {
+      Ball b = balls.get(i);
+      b.update();
+      bs.update(b);
+      jogador.colide(b);
+      if (!b.alive) balls.remove(i);
   }
   jogador.update();
 }
 
-void mousePressed() {
-  if (mouseButton == LEFT) {
-    Ball newBall = new Ball(mouseX, mouseY);
-    balls.add(newBall);
-  } else if (mouseButton == RIGHT && balls.size() > 0) balls.remove(0); 
-}
-
-void keyPressed() {
-  if(key == CODED) {
-    if (keyCode == LEFT) {
-      jogador.left = true;
-      jogador.direction = 1;
-    }
-    if(keyCode == RIGHT) {
-      jogador.right = true;
-      jogador.direction = -1;
-    }
-    
-    if(keyCode == UP) {
-      if (Running) {
-        Running = false;
-      } 
-      else {
-        Running = true;
-      }
-    }
-  }
-  if (key == 'r') bs.reset(); 
-  if (key == 'c') balls.clear();
-}
-
-void keyReleased() {
-  if(key == CODED) {
-    if (keyCode == LEFT) {
-      jogador.left = false;
-      jogador.speed = 0;
-    }
-    if(keyCode == RIGHT) {
-      jogador.right = false;
-      jogador.speed = 0;
-    }
-  }
-}
-
-void mouseWheel(MouseEvent event) {
-  for (Ball b : balls) {
-    b.speedX += event.getCount();
-    b.speedY += event.getCount();
-  }
-}
 
 void setup(){
   size(1280, 720);
@@ -88,8 +47,10 @@ void setup(){
   colorMode(HSB, 360, 100, 100);
   noStroke();
   
+  Running = true;
   minim = new Minim(this);
-  hit = minim.loadFile("beep.mp3");
+  hit = minim.loadFile("plop.wav");
+  dest = minim.loadFile("beep.wav");
   //song = minim.loadFile("song.mp3");
   //song.setVolume(1);
   //song.loop();

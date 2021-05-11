@@ -31,8 +31,6 @@ class Player {
     float distanceY = y2 - closestY;
     
     float distanceSqr = (distanceX * distanceX) + (distanceY * distanceY);
-    //hit.play();
-    //hit.rewind();
     return distanceSqr < (r * r);
     
   }
@@ -46,6 +44,8 @@ class Player {
     if (colisao(bola.x, bola.y, bola.size/2)) {
       bola.directionY *= -1;
       bola.directionX = this.direction;
+      hit.play();
+      hit.rewind();
     }
   }
   

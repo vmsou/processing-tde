@@ -1,3 +1,12 @@
+color c1 = color(200, 50, 50); 
+color c2 = color(255, 140, 0); 
+color c3 = color(255, 255, 0);
+color c4 = color(34, 139, 34); 
+color c5 = color(65, 105, 255);
+
+color[] colors = {c1, c2, c3, c4, c5};
+int[] healths = {3, 2, 2, 2, 1};
+
 class Block {
   int x, y, w, h;
   int maxHealth;
@@ -26,8 +35,10 @@ class Block {
     int r = bs/2;
     if (alive) {
       if ((by > y-r && by < y + h + r) && (bx > x-r && bx < x + w + r)) {
-        hit.play();
-        hit.rewind();
+        if (health > 1) {
+          hit.play();
+          hit.rewind();
+        }
         return true;
       }
     }
@@ -40,7 +51,7 @@ class BlockSystem {
   int l;
   
   BlockSystem(int n, int l) {
-    blocks = new ArrayList<Block>();
+    blocks = new ArrayList();
    
     for (int j = 0; j < l; j++) {
       for (int i = 0; i < n; i++) {
@@ -62,7 +73,7 @@ class BlockSystem {
         jogador.pontos += b.pontos;
         bola.directionY *= -1;
         b.health -= 1;
-        if (b.health <= 0) b.alive = false;
+        if (b.health <= 0) {b.alive = false; dest.play(); dest.rewind();}
       };
     }
   }
