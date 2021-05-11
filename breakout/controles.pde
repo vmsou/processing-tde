@@ -1,9 +1,15 @@
 // Mouse
 void mousePressed() {
-  if (mouseButton == LEFT) {
+  if (GAME_STATUS == 1) {
+    if (mouseButton == LEFT) {
     Ball newBall = new Ball(mouseX, mouseY);
     balls.add(newBall);
-  } else if (mouseButton == RIGHT && balls.size() > 0) balls.remove(0); 
+    } else if (mouseButton == RIGHT && balls.size() > 0) balls.remove(0);
+  }
+  else if (GAME_STATUS == 0) {
+    
+  }
+   
 }
 
 void mouseWheel(MouseEvent event) {
@@ -15,23 +21,19 @@ void mouseWheel(MouseEvent event) {
 
 // Teclado
 void keyPressed() {
-  if(key == CODED) {
+  if (key == CODED) {
     if (keyCode == LEFT) {
       jogador.left = true;
       jogador.direction = 1;
     }
-    if(keyCode == RIGHT) {
+    if (keyCode == RIGHT) {
       jogador.right = true;
       jogador.direction = -1;
     }
     
-    if(keyCode == UP) {
-      if (Running) {
-        Running = false;
-      } 
-      else {
-        Running = true;
-      }
+    if (key == 'p') {
+      if (Running) Running = false;
+      else Running = true;
     }
   }
   if (key == 'r') bs.reset(); 
