@@ -97,14 +97,15 @@ public void Voltar() {
 }
 
 void Mute(boolean Flag) {
-  if (Running) {
-    if (!Flag) {
-      hit.unmute();
-      dest.unmute();
+  println("Ativado");
+  if (!Flag) {
+    hit.unmute();
+    dest.unmute();
+    song.unmute();
   } else {
     hit.mute();
     dest.mute();
-    }
+    song.mute();
   }
 }
 
