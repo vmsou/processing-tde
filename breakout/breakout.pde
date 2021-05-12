@@ -1,5 +1,8 @@
 import ddf.minim.*;
 import controlP5.*;
+import processing.video.*;
+// Video
+Movie myMovie;
 
 // Som
 Minim minim;
@@ -48,14 +51,18 @@ void eventLoop() {
 void drawGame() {
   drawLoop();
   if (Running) eventLoop();
-  else pausedLabel.draw();
 }
+
 
 void setup(){
   size(1280, 720);
   frameRate(60);
   colorMode(HSB, 360, 100, 100);
   noStroke();
+  
+  // Video
+  myMovie = new Movie(this, "sp.mp4");
+  myMovie.loop();
   
   // Som
   minim = new Minim(this);
@@ -80,5 +87,10 @@ void setup(){
 
 void draw(){
   background(bg);
+  image(myMovie, 0, 0);
   if (GAME_STATUS == 1) drawGame();
+}
+
+void movieEvent(Movie m) {
+  m.read();
 }
