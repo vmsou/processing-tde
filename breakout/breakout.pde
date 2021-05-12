@@ -26,6 +26,10 @@ Textlabel pausedLabel;
 Textlabel pointsLabel;
 Textlabel healthLabel;
 
+Textlabel p0;
+Textlabel p1;
+Textlabel p2;
+
 int bg = color(0);
 
 void drawLoop() {

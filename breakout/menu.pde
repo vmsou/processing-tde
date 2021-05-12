@@ -59,6 +59,32 @@ void inicializar_menu(ControlP5 cp5) {
     .setColor(360)
     .setFont(font);
     
+  p0 = cp5.addTextlabel("p0")
+    .setText(nomeMelhores[0] + ": " + melhores[0])
+    .setPosition(width/2 - 75, 100 + (30 * 0))
+    .setSize(20, 20)
+    .setColor(360)
+    .setFont(font);
+  
+  p1 = cp5.addTextlabel("p1")
+    .setText(nomeMelhores[1] + ": " + melhores[1])
+    .setPosition(width/2 - 75, 100 + (30 * 1))
+    .setSize(20, 20)
+    .setColor(360)
+    .setFont(font);
+    
+  p2 = cp5.addTextlabel("p2")
+    .setText(nomeMelhores[2] + ": " + melhores[2])
+    .setPosition(width/2 - 75, 100 + (30 * 2))
+    .setSize(20, 20)
+    .setColor(360)
+    .setFont(font);
+  
+    
+  p0.hide();
+  p1.hide();
+  p2.hide();
+      
     
   cp5.get("Nome").hide();
   cp5.get("Mute").hide();
@@ -119,6 +145,13 @@ public void Placar() {
     cp5.get("Placar").hide();
     cp5.get("Sair").hide();
     cp5.get("Voltar").show();
+    ordenar();
+    p0.setText(nomeMelhores[0] + ": " + melhores[0]);
+    p1.setText(nomeMelhores[1] + ": " + melhores[1]);
+    p2.setText(nomeMelhores[2] + ": " + melhores[2]);
+    for (int i = 0; i < 3; i++) {
+      cp5.get("p"+i).show();
+    }
   }
 }
 
@@ -128,14 +161,16 @@ public void Voltar() {
     cp5.get("Voltar").hide();
     cp5.get("Mute").hide();
     cp5.get("Volume").hide();
+    for (int i = 0; i < 3; i++) {
+      cp5.get("p"+i).hide();
+    }
     menu();
-  }
-  else if (Paused) {
+  } else if (Paused) {
     Running = true;
     GAME_STATUS = 0;
     cp5.get("Voltar").hide();
     menu();
-  }
+    }
 }
 
 void Mute(boolean Flag) {

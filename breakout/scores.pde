@@ -39,8 +39,6 @@ void ordenar() {
          nomeMelhores[2] = nomeAtual;
        }
    }
-   println(melhores);
-   println(nomeMelhores);
   
   // CODIGO QUE SALVA O ARRAY ATUALIZADO
   
