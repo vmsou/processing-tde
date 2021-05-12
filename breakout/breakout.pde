@@ -88,6 +88,8 @@ void setup(){
 void draw(){
   background(bg);
   image(myMovie, 0, 0);
+  fill(255);
+  text(jogador.nome, width/2 - 45, 30);
   if (GAME_STATUS == 1) drawGame();
 }
 

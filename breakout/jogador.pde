@@ -3,6 +3,7 @@ public static float clamp(float val, float min, float max) {
 }
 
 class Player {
+  String nome = "Jogador1";
   int x, y;
   int w, h;
   float speed = 0;
