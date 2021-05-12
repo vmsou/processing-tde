@@ -80,6 +80,7 @@ void setup(){
   
   // Menu
   cp5 = new ControlP5(this);
+  font = createFont("arial", 20);
   inicializar_menu(cp5);
   
   Running = true;
@@ -88,9 +89,23 @@ void setup(){
 void draw(){
   background(bg);
   image(myMovie, 0, 0);
-  fill(255);
-  text(jogador.nome, width/2 - 45, 30);
+  fill(360);
+  textSize(20);
+  text(jogador.nome, width/2 - 55, 30);
   if (GAME_STATUS == 1) drawGame();
+}
+
+public void fexit() {
+  hit.mute();
+  dest.mute();
+  song.mute();
+  myMovie.stop();
+  minim.stop();
+  myMovie = null;
+  minim = null;
+  noLoop();
+  super.exit();
+  System.exit(0);
 }
 
 void movieEvent(Movie m) {

@@ -1,4 +1,5 @@
 boolean toggleMute = true;
+PFont font;
 
 void inicializar_menu(ControlP5 cp5) {
   cp5.addButton("Jogar")
@@ -11,9 +12,14 @@ void inicializar_menu(ControlP5 cp5) {
     .setPosition(width/2 - 200, height/2 + 60)
     .setSize(400, 40);
     
+  cp5.addButton("Sair")
+    .setValue(10)
+    .setPosition(width/2 - 200, height/2 + 120)
+    .setSize(400, 40);
+    
   cp5.addButton("Voltar")
     .setValue(3)
-    .setPosition(width/2 - 200, height/2 + 120)
+    .setPosition(width/2 - 200, height/2 + 180)
     .setSize(400, 40);
     
   cp5.addTextfield("Nome")
@@ -33,17 +39,23 @@ void inicializar_menu(ControlP5 cp5) {
   pausedLabel = cp5.addTextlabel("Pausado")
     .setText("Pausado")
     .setPosition(width/2, height/2)
-    .setColorValue(0xffffff00);
+    .setSize(20, 20)
+    .setFont(font)
+    .setColor(360);
     
   pointsLabel = cp5.addTextlabel("Pontos")
     .setText("Pontos: 0")
     .setPosition(20, 30)
-    .setColorValue(0xffffff00);
+    .setSize(20, 20)
+    .setFont(font)
+    .setColor(360);
     
   healthLabel = cp5.addTextlabel("Vida")
     .setText("Vida: 3")
     .setPosition(1170, 30)
-    .setColorValue(0xffffff00);
+    .setSize(20, 20)
+    .setColor(360)
+    .setFont(font);
     
     
   cp5.get("Nome").hide();
@@ -60,6 +72,7 @@ void inicializar_menu(ControlP5 cp5) {
 void menu() {
   cp5.get("Jogar").show();
   cp5.get("Settings").show();
+  cp5.get("Sair").show();
 }
 
 void HUD() {
@@ -74,6 +87,7 @@ public void Jogar() {
     GAME_STATUS = 1;
     cp5.get("Jogar").hide();
     cp5.get("Settings").hide();
+    cp5.get("Sair").hide();
   }  
 }
 
@@ -81,11 +95,16 @@ public void Settings() {
   if (Running) {
     cp5.get("Jogar").hide();
     cp5.get("Settings").hide();
+    cp5.get("Sair").hide();
     cp5.get("Nome").show();
     cp5.get("Mute").show();
     cp5.get("Volume").show();
     cp5.get("Voltar").show();
   }
+}
+
+public void Sair() {
+  if (Running) fexit();
 }
 
 public void Voltar() {
@@ -105,24 +124,29 @@ public void Voltar() {
 }
 
 void Mute(boolean Flag) {
-  println("Ativado");
-  if (!Flag) {
-    hit.unmute();
-    dest.unmute();
-    song.unmute();
-  } else {
-    hit.mute();
-    dest.mute();
-    song.mute();
-  }
+  if (Running) {
+    if (!Flag) {
+      hit.unmute();
+      dest.unmute();
+      song.unmute();
+    } else {
+      hit.mute();
+      dest.mute();
+      song.mute();
+    }
+  } 
 }
 
 void Volume(float value) {
-  hit.setGain(value);
-  dest.setGain(value);
-  song.setGain(value);
+  if (Running) {
+    hit.setGain(value);
+    dest.setGain(value);
+    song.setGain(value);
+  }
 }
 
 void Nome(String value) {
-  jogador.nome = value;
+  if (Running) {
+    jogador.nome = value;
+  }
 }
