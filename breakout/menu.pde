@@ -3,24 +3,23 @@ boolean toggleMute = true;
 void inicializar_menu(ControlP5 cp5) {
   cp5.addButton("Jogar")
     .setValue(1)
-    .setPosition(width/2 - 125, height/2)
-    .setSize(200, 19);
+    .setPosition(width/2 - 200, height/2)
+    .setSize(400, 40);
     
   cp5.addButton("Settings")
     .setValue(2)
-    .setPosition(width/2 - 125, height/2 + 30)
-    .setSize(200, 19);
+    .setPosition(width/2 - 200, height/2 + 60)
+    .setSize(400, 40);
     
   cp5.addButton("Voltar")
     .setValue(3)
-    .setPosition(width/2 - 125, height/2 + 60)
-    .setSize(200, 19);
+    .setPosition(width/2 - 200, height/2 + 120)
+    .setSize(400, 40);
     
   cp5.addToggle("Mute")
-    .setValue(true)
-    .setPosition(width/2 - 125, height/2)
-    .setSize(200, 19)
-    .setMode(ControlP5.SWITCH);
+    .setValue(false)
+    .setPosition(width/2 - 200, height/2)
+    .setSize(400, 40);
   
   cp5.get("Mute").hide();
   cp5.get("Voltar").hide();
@@ -66,7 +65,7 @@ public void Voltar() {
 
 void Mute(boolean Flag) {
   if (Running) {
-    if (Flag) {
+    if (!Flag) {
       hit.unmute();
       dest.unmute();
   } else {

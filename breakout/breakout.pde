@@ -13,6 +13,7 @@ Player jogador;
 
 // Configurações do jogo
 boolean Running;
+boolean Paused;
 int GAME_STATUS = 0;  // 0 = Menu, 1 = Game
 
 // Elementos do Menu

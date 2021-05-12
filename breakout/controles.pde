@@ -34,18 +34,18 @@ void keyPressed() {
         jogador.direction = -1;
       } 
     }
-    if (key == 'p') {
-        if (Running) {Running = false; cp5.get("Voltar").show();}
-        else {Running = true; cp5.get("Voltar").hide();}
-      }
     if (key == 'r') bs.reset(); 
     if (key == 'c') balls.clear();
+  }
+  if (key == 'p') {
+    if (Running) {Running = false; cp5.get("Voltar").show();}
+    else {Running = true; cp5.get("Voltar").hide();}
   }
 }
 
 
 void keyReleased() {
-  if (GAME_STATUS == 1 && Running) {
+  if (GAME_STATUS == 1) {
     if(key == CODED) {
       if (keyCode == LEFT) {
         jogador.left = false;
