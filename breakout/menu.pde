@@ -1,6 +1,3 @@
-boolean toggleMute = true;
-PFont font;
-
 void inicializar_menu(ControlP5 cp5) {
   cp5.addButton("Jogar")
     .setValue(1)
@@ -12,9 +9,14 @@ void inicializar_menu(ControlP5 cp5) {
     .setPosition(width/2 - 200, height/2 + 60)
     .setSize(400, 40);
     
+  cp5.addButton("Placar")
+    .setValue(9)
+    .setPosition(width/2 - 200, height/2 + 120)
+    .setSize(400, 40);
+    
   cp5.addButton("Sair")
     .setValue(10)
-    .setPosition(width/2 - 200, height/2 + 120)
+    .setPosition(width/2 - 200, height/2 + 180)
     .setSize(400, 40);
     
   cp5.addButton("Voltar")
@@ -72,6 +74,7 @@ void inicializar_menu(ControlP5 cp5) {
 void menu() {
   cp5.get("Jogar").show();
   cp5.get("Settings").show();
+  cp5.get("Placar").show();
   cp5.get("Sair").show();
 }
 
@@ -87,6 +90,7 @@ public void Jogar() {
     GAME_STATUS = 1;
     cp5.get("Jogar").hide();
     cp5.get("Settings").hide();
+    cp5.get("Placar").hide();
     cp5.get("Sair").hide();
   }  
 }
@@ -95,6 +99,7 @@ public void Settings() {
   if (Running) {
     cp5.get("Jogar").hide();
     cp5.get("Settings").hide();
+    cp5.get("Placar").hide();
     cp5.get("Sair").hide();
     cp5.get("Nome").show();
     cp5.get("Mute").show();
@@ -105,6 +110,16 @@ public void Settings() {
 
 public void Sair() {
   if (Running) fexit();
+}
+
+public void Placar() {
+  if (Running) {
+    cp5.get("Jogar").hide();
+    cp5.get("Settings").hide();
+    cp5.get("Placar").hide();
+    cp5.get("Sair").hide();
+    cp5.get("Voltar").show();
+  }
 }
 
 public void Voltar() {

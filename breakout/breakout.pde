@@ -21,12 +21,12 @@ int GAME_STATUS = 0;  // 0 = Menu, 1 = Game
 
 // Elementos do Menu
 ControlP5 cp5;
+PFont font;
 Textlabel pausedLabel;
 Textlabel pointsLabel;
 Textlabel healthLabel;
 
 int bg = color(0);
-
 
 void drawLoop() {
   for (Ball b : balls) b.desenhar();
