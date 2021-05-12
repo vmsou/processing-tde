@@ -38,8 +38,16 @@ void keyPressed() {
     if (key == 'c') balls.clear();
   }
   if (key == 'p') {
-    if (Running) {Running = false; cp5.get("Voltar").show();}
-    else {Running = true; cp5.get("Voltar").hide();}
+    if (Running) {
+      Running = false; 
+      cp5.get("Voltar").show();
+      Paused = true;
+    }
+    else {
+      Running = true; 
+      cp5.get("Voltar").hide();
+      Paused = false;
+    }
   }
 }
 

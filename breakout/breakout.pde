@@ -18,6 +18,10 @@ int GAME_STATUS = 0;  // 0 = Menu, 1 = Game
 
 // Elementos do Menu
 ControlP5 cp5;
+Textlabel pausedLabel;
+Textlabel pointsLabel;
+Textlabel healthLabel;
+
 int bg = color(0);
 
 
@@ -40,17 +44,11 @@ void eventLoop() {
   jogador.update();
 }
 
-void drawMenu() {
-
-}
 
 void drawGame() {
   drawLoop();
   if (Running) eventLoop();
-  else {
-    textSize(40);
-    text("Pausado", width/2 - 100, height/2);
-  }
+  else pausedLabel.draw();
 }
 
 void setup(){
@@ -63,9 +61,8 @@ void setup(){
   minim = new Minim(this);
   hit = minim.loadFile("plop.wav");
   dest = minim.loadFile("beep.wav");
-  // song = minim.loadFile("song.mp3");
-  // song.setVolume(1);
-  // song.loop();
+  song = minim.loadFile("song.mp3");
+  song.loop();
   
   // Elementos
   bs = new BlockSystem(8, 5);
@@ -83,15 +80,5 @@ void setup(){
 
 void draw(){
   background(bg);
-  switch (GAME_STATUS) {
-    case 0:
-      drawMenu();
-      break;
-    case 1:
-      drawGame();
-      break;
-    default:
-      println("Error?");
-      break;
-  }
+  if (GAME_STATUS == 1) drawGame();
 }
