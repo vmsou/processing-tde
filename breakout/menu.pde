@@ -14,6 +14,11 @@ void inicializar_menu(ControlP5 cp5) {
     .setPosition(width/2 - 200, height/2 + 120)
     .setSize(400, 40);
     
+  cp5.addButton("Salvar")
+    .setValue(7)
+    .setPosition(width/2 - 200, height/2 + 120)
+    .setSize(400, 40);
+    
   cp5.addButton("Sair")
     .setValue(10)
     .setPosition(width/2 - 200, height/2 + 180)
@@ -93,6 +98,7 @@ void inicializar_menu(ControlP5 cp5) {
     
   cp5.get("Nome").hide();
   cp5.get("Mute").hide();
+  cp5.get("Salvar").hide();
   cp5.get("Voltar").hide();
   cp5.get("songVolume").hide();
   cp5.get("gameVolume").hide();
@@ -164,9 +170,16 @@ public void Placar() {
   }
 }
 
+public void Salvar() {
+  if (Running || Paused) {
+    println("Salvando dados de... " + jogador.nome + ": " + jogador.pontos);
+  }
+}
+
 public void Voltar() {
   if (Running) {
     cp5.get("Nome").hide();
+    cp5.get("Salvar").hide();
     cp5.get("Voltar").hide();
     cp5.get("Mute").hide();
     cp5.get("songVolume").hide();
@@ -178,6 +191,7 @@ public void Voltar() {
   } else if (Paused) {
     Running = true;
     GAME_STATUS = 0;
+    cp5.get("Salvar").hide();
     cp5.get("Voltar").hide();
     menu();
     }

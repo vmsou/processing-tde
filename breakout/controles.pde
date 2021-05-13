@@ -40,6 +40,7 @@ void keyPressed() {
   if (key == 'p') {
     if (Running) {
       Running = false; 
+      cp5.get("Salvar").show();
       cp5.get("Voltar").show();
       Paused = true;
     }
