@@ -33,8 +33,13 @@ void inicializar_menu(ControlP5 cp5) {
     .setPosition(width/2 - 200, height/2)
     .setSize(400, 40);
     
-  cp5.addSlider("Volume")
+  cp5.addSlider("songVolume")
     .setPosition(width/2 - 200, height/2 + 60)
+    .setSize(400, 40)
+    .setRange(-40, 10);
+    
+  cp5.addSlider("gameVolume")
+    .setPosition(width/2 - 200, height/2 + 120)
     .setSize(400, 40)
     .setRange(-40, 10);
     
@@ -89,7 +94,8 @@ void inicializar_menu(ControlP5 cp5) {
   cp5.get("Nome").hide();
   cp5.get("Mute").hide();
   cp5.get("Voltar").hide();
-  cp5.get("Volume").hide();
+  cp5.get("songVolume").hide();
+  cp5.get("gameVolume").hide();
   
   pausedLabel.hide();
   pointsLabel.hide();
@@ -129,7 +135,8 @@ public void Settings() {
     cp5.get("Sair").hide();
     cp5.get("Nome").show();
     cp5.get("Mute").show();
-    cp5.get("Volume").show();
+    cp5.get("songVolume").show();
+    cp5.get("gameVolume").show();
     cp5.get("Voltar").show();
   }
 }
@@ -144,6 +151,8 @@ public void Placar() {
     cp5.get("Settings").hide();
     cp5.get("Placar").hide();
     cp5.get("Sair").hide();
+    cp5.get("songVolume").hide();
+    cp5.get("gameVolume").hide();
     cp5.get("Voltar").show();
     ordenar();
     p0.setText(nomeMelhores[0] + ": " + melhores[0]);
@@ -160,7 +169,8 @@ public void Voltar() {
     cp5.get("Nome").hide();
     cp5.get("Voltar").hide();
     cp5.get("Mute").hide();
-    cp5.get("Volume").hide();
+    cp5.get("songVolume").hide();
+    cp5.get("gameVolume").hide();
     for (int i = 0; i < 3; i++) {
       cp5.get("p"+i).hide();
     }
@@ -187,11 +197,16 @@ void Mute(boolean Flag) {
   } 
 }
 
-void Volume(float value) {
+void songVolume(float value) {
+  if (Running) {
+    song.setGain(value);
+  }
+}
+
+void gameVolume(float value) {
   if (Running) {
     hit.setGain(value);
     dest.setGain(value);
-    song.setGain(value);
   }
 }
 
