@@ -35,6 +35,7 @@ class Ball {
     }
   }
   
+ 
   void desenhar() {
       float h = x * 360.0 / width;
       float s = y * 100.0 / height;

@@ -45,7 +45,8 @@ void keyPressed() {
       Paused = true;
     }
     else {
-      Running = true; 
+      Running = true;
+      cp5.get("Salvar").hide();
       cp5.get("Voltar").hide();
       Paused = false;
     }
