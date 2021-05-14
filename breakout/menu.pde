@@ -1,3 +1,5 @@
+JSONObject pl;
+
 void inicializar_menu(ControlP5 cp5) {
   cp5.addButton("Jogar")
     .setValue(1)
@@ -172,10 +174,12 @@ public void Placar() {
 
 public void Salvar() {
   if (Running || Paused) {
-    JSONObject pl = new JSONObject();
+    infoPlayers = loadJSONArray("data.json");
+    pl = new JSONObject();
     pl.setInt("Pontos", jogador.pontos);
     pl.setString("Nome", jogador.nome);
-    infoPlayers.setJSONObject(infoPlayers.size(), pl);
+    infoPlayers.append(pl);
+    saveJSONArray(infoPlayers, "data/data.json");
   }
 }
 
