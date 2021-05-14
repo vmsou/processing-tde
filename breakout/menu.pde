@@ -172,7 +172,10 @@ public void Placar() {
 
 public void Salvar() {
   if (Running || Paused) {
-    println("Salvando dados de... " + jogador.nome + ": " + jogador.pontos);
+    JSONObject pl = new JSONObject();
+    pl.setInt("Pontos", jogador.pontos);
+    pl.setString("Nome", jogador.nome);
+    infoPlayers.setJSONObject(infoPlayers.size(), pl);
   }
 }
 
