@@ -24,16 +24,16 @@ void mouseWheel(MouseEvent event) {
 // Teclado
 void keyPressed() {
   if (GAME_STATUS == 1 && Running) {
-    if (keyCode == LEFT || key == 'a') {
+    if (keyCode == LEFT || key == controles.get("esquerda")) {
       jogador.left = true;
       jogador.direction = 1;
     }
-    if (keyCode == RIGHT || key == 'd') {
+    if (keyCode == RIGHT ||key == controles.get("direita")) {
       jogador.right = true;
       jogador.direction = -1;
     } 
-    if (key == 'r') bs.reset(); 
-    if (key == 'c') balls.clear();
+    if (key == controles.get("resetar_blocos")) bs.reset(); 
+    if (key == controles.get("resetar_bolas")) balls.clear();
   }
   if (key == 'p') {
     if (Running) {

@@ -19,6 +19,7 @@ Player jogador;
 boolean Running;
 boolean Paused;
 int GAME_STATUS = 0;  // 0 = Menu, 1 = Game
+HashMap<String, Character> controles;
 
 // Elementos do Menu
 ControlP5 cp5;
@@ -95,6 +96,13 @@ void setup(){
   dest = minim.loadFile("beep.wav");
   song = minim.loadFile("song.mp3");
   song.loop();
+  
+  // Controles
+  controles = new HashMap<String, Character>();
+  controles.put("resetar_blocos", 'r');
+  controles.put("resetar_bolas", 'c');
+  controles.put("esquerda", 'a');
+  controles.put("direita", 'd');
   
   // Elementos
   init();

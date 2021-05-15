@@ -92,6 +92,19 @@ void inicializar_menu(ControlP5 cp5) {
     .setColor(360)
     .setFont(font);
   
+  int i = 0;
+  String t;
+  for (String k : controles.keySet()) {
+    t = controles.get(k) + "";
+    cp5.addTextfield(k)
+    .setPosition(width/2 - 400, height/2 - 60 + (i * 60))
+    .setText(t)
+    .setFont(createFont("arial", 13))
+    .setSize(100, 40);
+    i++;
+    cp5.get(k).hide();
+  }
+  
     
   p0.hide();
   p1.hide();
@@ -146,6 +159,7 @@ public void Settings() {
     cp5.get("songVolume").show();
     cp5.get("gameVolume").show();
     cp5.get("Voltar").show();
+    for (String k : controles.keySet()) cp5.get(k).show();
   }
 }
 
@@ -194,6 +208,7 @@ public void Voltar() {
     for (int i = 0; i < 3; i++) {
       cp5.get("p"+i).hide();
     }
+    for (String k : controles.keySet()) cp5.get(k).hide();
     menu();
   } else if (Paused) {
     Running = true;
