@@ -6,6 +6,12 @@ int melhores[] = {0, 0, 0};
 String nomeMelhores[] = {"-", "-", "-"};
 
 void ordenar() {
+  melhores[0] = 0;
+  melhores[1] = 0;
+  melhores[2] = 0;
+  nomeMelhores[0] = "";
+  nomeMelhores[1] = "";
+  nomeMelhores[2] = "";
   infoPlayers = loadJSONArray("data.json");
   
   // CODIGO QUE SALVA E INSERE AS INFORMACOES DO PLAYER NO ARRAY
