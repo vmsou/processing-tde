@@ -251,3 +251,28 @@ void Nome(String value) {
     jogador.nome = value;
   }
 }
+
+
+void resetar_blocos(String value) {
+  if (Running) {
+    controles.put("resetar_blocos", value.charAt(0));
+  }
+}
+
+void resetar_bolas(String value) {
+  if (Running) {
+    controles.put("resetar_bolas", value.charAt(0));
+  }
+}
+
+void esquerda(String value) {
+  if (Running) {
+    controles.put("esquerda", value.charAt(0));
+  }
+}
+
+void direita(String value) {
+  if (Running) {
+    controles.put("direita", value.charAt(0));
+  }
+}
