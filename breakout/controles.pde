@@ -54,11 +54,11 @@ void keyPressed() {
 
 void keyReleased() {
   if (GAME_STATUS == 1) {
-    if (keyCode == LEFT || key == 'a') {
+    if (keyCode == LEFT || key == controles.get("esquerda")) {
       jogador.left = false;
       jogador.speed = 0;
     }
-    if(keyCode == RIGHT || key == 'd') {
+    if(keyCode == RIGHT || key == controles.get("direita")) {
       jogador.right = false;
       jogador.speed = 0;
     }
