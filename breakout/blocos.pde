@@ -84,4 +84,8 @@ class BlockSystem {
       b.health = b.maxHealth;
     }
   }
+  
+  void clear() {
+    blocks.clear();
+  }
 }

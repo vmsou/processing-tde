@@ -33,6 +33,26 @@ Textlabel p2;
 
 int bg = color(0);
 
+void init() {
+  bs = new BlockSystem(8, 5);
+  jogador = new Player(50, 670, 200, 20);
+  ball = new Ball(20, 640);
+  balls = new ArrayList();
+  balls.add(ball);
+}
+
+void reset() {
+  Salvar();
+  GAME_STATUS = 0;
+  jogador.pontos = 0;
+  jogador.health = 3;
+  balls.clear();
+  bs.clear();
+  Voltar();
+  init();
+}
+
+
 void drawLoop() {
   for (Ball b : balls) b.desenhar();
   HUD();
@@ -41,7 +61,7 @@ void drawLoop() {
 }
 
 void eventLoop() {
-  if (jogador.health <= 0) Running = false;
+  if (jogador.health <= 0) reset();
   for (int i = 0; i < balls.size(); i++) {
       Ball b = balls.get(i);
       b.update();
@@ -77,11 +97,7 @@ void setup(){
   song.loop();
   
   // Elementos
-  bs = new BlockSystem(8, 5);
-  jogador = new Player(50, 670, 200, 20);
-  ball = new Ball(20, 640);
-  balls = new ArrayList();
-  balls.add(ball);
+  init();
   
   // Menu
   cp5 = new ControlP5(this);
