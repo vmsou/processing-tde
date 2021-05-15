@@ -47,7 +47,7 @@ class Player {
   void colide(Ball bola) {
     if (colisao(bola.x, bola.y, bola.size/2)) {
       bola.directionY *= -1;
-      bola.directionX = this.direction;
+      if (left || right) bola.directionX = this.direction;
       hit.play();
       hit.rewind();
     }
