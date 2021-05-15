@@ -103,6 +103,7 @@ void setup(){
   controles.put("resetar_bolas", 'c');
   controles.put("esquerda", 'a');
   controles.put("direita", 'd');
+  controles.put("pausa", 'p');
   
   // Elementos
   init();

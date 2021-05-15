@@ -276,3 +276,9 @@ void direita(String value) {
     controles.put("direita", value.charAt(0));
   }
 }
+
+void pausa(String value) {
+  if (Running) {
+    controles.put("pausa", value.charAt(0));
+  }
+}
