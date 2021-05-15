@@ -23,19 +23,20 @@ void mouseWheel(MouseEvent event) {
 
 // Teclado
 void keyPressed() {
+  Character k = Character.toLowerCase(key);
   if (GAME_STATUS == 1 && Running) {
-    if (keyCode == LEFT || key == controles.get("esquerda")) {
+    if (keyCode == LEFT || k == controles.get("esquerda")) {
       jogador.left = true;
       jogador.direction = 1;
     }
-    if (keyCode == RIGHT ||key == controles.get("direita")) {
+    if (keyCode == RIGHT ||k == controles.get("direita")) {
       jogador.right = true;
       jogador.direction = -1;
     } 
-    if (key == controles.get("resetar_blocos")) bs.reset(); 
-    if (key == controles.get("resetar_bolas")) balls.clear();
+    if (k == controles.get("resetar_blocos")) bs.reset(); 
+    if (k == controles.get("resetar_bolas")) balls.clear();
   }
-  if (key == 'p') {
+  if (k == 'p') {
     if (Running) {
       Running = false; 
       cp5.get("Salvar").show();
@@ -53,12 +54,13 @@ void keyPressed() {
 
 
 void keyReleased() {
+  Character k = Character.toLowerCase(key);
   if (GAME_STATUS == 1) {
-    if (keyCode == LEFT || key == controles.get("esquerda")) {
+    if (keyCode == LEFT || k == controles.get("esquerda")) {
       jogador.left = false;
       jogador.speed = 0;
     }
-    if(keyCode == RIGHT || key == controles.get("direita")) {
+    if(keyCode == RIGHT || k == controles.get("direita")) {
       jogador.right = false;
       jogador.speed = 0;
     }
