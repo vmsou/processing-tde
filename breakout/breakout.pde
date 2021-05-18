@@ -1,3 +1,7 @@
+// Diogo Kiche
+// Pedro Carstens
+// Vinicius Marques
+
 import ddf.minim.*;
 import controlP5.*;
 import processing.video.*;
